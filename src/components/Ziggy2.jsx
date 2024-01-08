@@ -10,7 +10,7 @@ const Ziggy2 = () => {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/restaurants');
+        const response = await axios.get('https://ziggyback.onrender.com/restaurants');
         setRestaurants(response.data);
       } catch (error) {
         console.error('Error fetching restaurants:', error);
@@ -28,7 +28,7 @@ const Ziggy2 = () => {
     formData.append('image', newRestaurantImage);
 
     try {
-      const response = await axios.post('http://localhost:5000/restaurants', formData);
+      const response = await axios.post('https://ziggyback.onrender.com/restaurants', formData);
       setRestaurants([...restaurants, response.data]);
       setNewRestaurantName('');
       setNewRestaurantImage(null);
@@ -54,7 +54,7 @@ const Ziggy2 = () => {
     formData.append('image', newItemInputs[restaurantId]?.image || '');
 
     try {
-      const response = await axios.post(`http://localhost:5000/restaurants/${restaurantId}/items`, formData);
+      const response = await axios.post(`https://ziggyback.onrender.com/${restaurantId}/items`, formData);
 
       setRestaurants((prevRestaurants) => {
         return prevRestaurants.map((restaurant) => {
@@ -111,7 +111,7 @@ const Ziggy2 = () => {
             <h2 className="text-xl font-semibold mb-2">{restaurant.name}</h2>
 
             <img
-              src={`http://localhost:5000/uploads/${restaurant.image}`}
+              src={`https://ziggyback.onrender.com/uploads/${restaurant.image}`}
               alt={restaurant.name}
               className="w-full h-40 object-cover mb-2"
             />
@@ -155,7 +155,7 @@ const Ziggy2 = () => {
                  <h3 className="text-lg font-semibold">{item.name}</h3>
                  <p className="text-gray-600">Price: ${item.price}</p>
                  <img
-                   src={`http://localhost:5000/uploads/${item.image}`}
+                   src={`https://ziggyback.onrender.com/uploads/${item.image}`}
                    alt={item.name}
                    className="w-full h-20 object-cover mt-2"
                  />
