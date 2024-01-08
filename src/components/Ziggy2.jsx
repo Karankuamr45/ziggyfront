@@ -54,7 +54,7 @@ const Ziggy2 = () => {
     formData.append('image', newItemInputs[restaurantId]?.image || '');
 
     try {
-      const response = await axios.post(`https://ziggyback.onrender.com/${restaurantId}/items`, formData);
+      const response = await axios.post(`https://ziggyback.onrender.com/restaurants/${restaurantId}/items`, formData);
 
       setRestaurants((prevRestaurants) => {
         return prevRestaurants.map((restaurant) => {
