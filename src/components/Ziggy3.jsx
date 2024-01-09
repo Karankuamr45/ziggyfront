@@ -90,7 +90,7 @@ const Ziggy3 = () => {
   const handleDeleteRestaurant = async (restaurantId) => {
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:5000/restaurants/${restaurantId}`);
+      await axios.delete(`https://ziggyback.onrender.com/restaurants/${restaurantId}`);
       setRestaurants((prevRestaurants) =>
         prevRestaurants.filter((restaurant) => restaurant._id !== restaurantId)
       );
@@ -105,7 +105,7 @@ const Ziggy3 = () => {
   const handleDeleteItem = async (restaurantId, itemId) => {
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:5000/restaurants/${restaurantId}/items/${itemId}`);
+      await axios.delete(`https://ziggyback.onrender.com/restaurants/${restaurantId}/items/${itemId}`);
       setRestaurants((prevRestaurants) =>
         prevRestaurants.map((restaurant) =>
           restaurant._id === restaurantId
